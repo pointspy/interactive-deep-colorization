@@ -229,6 +229,7 @@ class ColorizeImageTorch(ColorizeImageBase):
         self.net.load_state_dict(state_dict)
         if gpu_id != None:
             self.net.cuda()
+            print('Cuda is used!!!!!')
         self.net.eval()
         self.net_set = True
 
@@ -253,7 +254,9 @@ class ColorizeImageTorch(ColorizeImageBase):
         # assumes self.img_l_mc has been set
 
         if ColorizeImageBase.net_forward(self, input_ab, input_mask) == -1:
+            print('ColorizeImageBase.net_forward(self, input_ab, input_mask) == -1    !!!!!!!!')
             return -1
+            
 
         # net_input_prepped = np.concatenate((self.img_l_mc, self.input_ab_mc, self.input_mask_mult), axis=0)
 
